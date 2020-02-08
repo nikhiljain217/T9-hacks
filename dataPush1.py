@@ -23,8 +23,8 @@ with open(csv_path) as csvdata:
         
         del row['LAST_OCCURRENCE_DATE']
         try:
-            #row['FIRST_OCCURRENCE_DATE']=datetime.strptime(row['FIRST_OCCURRENCE_DATE'],"%Y-%m-%d %H:%M:%S")
-            #row['REPORTED_DATE']=datetime.strptime(row['REPORTED_DATE'],"%Y-%m-%d %H:%M:%S")
+            datetime.strptime(row['FIRST_OCCURRENCE_DATE'],"%Y-%m-%d %H:%M:%S")
+            datetime.strptime(row['REPORTED_DATE'],"%Y-%m-%d %H:%M:%S")
             row['GEO_X']=int(row['GEO_X'])
             row['GEO_Y']=int(row['GEO_Y'])
         except ValueError:
