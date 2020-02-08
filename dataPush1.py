@@ -8,6 +8,16 @@ post_request_headers = {
 csv_path = 'traffic_accidents.csv'
 json_path = 'parsed _data.json'
 data = {}
+dist_map = {
+	0: "Others",
+    1:"City and County of Denver",
+    2:"northwestern suburbs of Denver",
+    3:"rural Western Slope",
+    4:"rural Eastern Plains",
+    5:"Colorado Springs",
+    6:"Denver-Aurora Metropolitan Area",
+    7:"western parts of the Denver-Aurora Metropolitan Area"
+}
 es_url = 'http://116.202.87.166:3718'
 es_index = 'acci'
 with open(csv_path) as csvdata:
@@ -41,7 +51,8 @@ with open(csv_path) as csvdata:
             
         else:
             row['DISTRICT_ID']=0
-            
+
+        row['district'] = dist_map[row['DISTRICT_ID']]
 
         if(row['PRECINCT_ID']!=''):
             
