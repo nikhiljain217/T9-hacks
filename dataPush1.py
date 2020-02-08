@@ -8,8 +8,8 @@ post_request_headers = {
 csv_path = 'traffic_accidents.csv'
 json_path = 'parsed _data.json'
 data = {}
-#es_url = 'http://116.202.87.166:3718'
-#es_index = 'acci'
+es_url = 'http://116.202.87.166:3718'
+es_index = 'acci'
 with open(csv_path) as csvdata:
     csvReader = csv.DictReader(csvdata)
     for row in csvReader:
@@ -27,6 +27,7 @@ with open(csv_path) as csvdata:
             datetime.strptime(row['REPORTED_DATE'],"%Y-%m-%d %H:%M:%S")
             row['GEO_X']=int(row['GEO_X'])
             row['GEO_Y']=int(row['GEO_Y'])
+
         except ValueError:
             continue
         row['INCIDENT_ADDRESS']=row['INCIDENT_ADDRESS'].replace(' ','_')
@@ -34,6 +35,7 @@ with open(csv_path) as csvdata:
         
         row['GEO_LON']=float(row['GEO_LON'])
         row['GEO_LAT']=float(row['GEO_LAT'])
+        row['location'] = [row['GEO_LON'],row['GEO_LAT']]
         if(row['DISTRICT_ID']!=''):
             row['DISTRICT_ID']=int(row['DISTRICT_ID'])
             
@@ -46,16 +48,29 @@ with open(csv_path) as csvdata:
             row['PRECINCT_ID']=int(row['PRECINCT_ID'])
         else:
             
-            row['PRECINCT_ID']=0            
+            row['PRECINCT_ID'] = 0
+        if (row['FATALITIES'] != ''):
+
+            row['FATALITIES'] = float(row['FATALITIES'])
+        else:
+
+            row['FATALITIES'] = 0
+        if (row['SERIOUSLY_INJURED'] != ''):
+
+            row['SERIOUSLY_INJURED'] = float(row['SERIOUSLY_INJURED'])
+        else:
+
+            row['SERIOUSLY_INJURED'] = 0
 
         
         del row['BICYCLE_IND']
         del row['PEDESTRIAN_IND']
         data[id] = row
-        #insert_request = requests.post(url="{}/{}/_doc/{}".format(es_url, es_index, row['OBJECTID_1']),
-                                       #data=json.dumps(data[id]),
-                                       #headers=post_request_headers).json()
-        #print(insert_request)
+        # print((row))
+        insert_request = requests.post(url="{}/{}/_doc/{}".format(es_url, es_index, row['OBJECTID_1']),
+                                       data=json.dumps(row),
+                                       headers=post_request_headers).json()
+        # print(insert_request)
         # print(row)
 
 with open(json_path,'w')as jsonFile:
