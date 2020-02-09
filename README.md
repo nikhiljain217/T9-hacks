@@ -24,10 +24,14 @@ User can plan their road trip based on the safety index of the route
 	The graphs explains the location where more accidents occured in the state of Colorado. The higher the freqency of accidents in particular neighbourhood will be focused in bigger size inside the cluster.
 
 ![Screenshot](Heat%20Map%20of%20accidents%20over%20the%20denver-colorado%20map.PNG)
-	We are able to display the accident zone where users tends to get injured more.
+	We are able to display the accident zone where users tends to get injured more. Color variation indicates the severioty of the zone accident occurance. Above chart displays accident zones reported in the year of 2016 and 2019.
 
 ![Screenshot](Number%20of%20Accidents%20over%20the%20accident%20reasons.PNG)
-	Bar chart which depicts 
+	We are able to categorize the accidents based on the reasons associated with the accident. main reasons for accidents are 
+	1. Careless Driving
+	2. Followed too closely
+	3. Failed to Yield Row
 
 ![Screenshot](Share%20of%20Accidents%20over%20location.PNG)
+	we are able to display accident occured in perticular type of locations, like Parking lots, Intersection, Highway Interchange. Based on the accident reported from 2016 to 2019 we can visualize that accident occured at non-Itersection roads.
 
