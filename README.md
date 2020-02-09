@@ -1,10 +1,10 @@
-# T9Hacks  -  Accident Analyser
+# T9Hacks  -  Data Saves life
 
 
 
 ## Project Details
 
-**Accident Analyser** is a tool which allow's user to get insight from state's safe roads and non-safe roads. It provides detailed information about type of accident and road safety index.
+**Data Saves life** is a tool which allow's user to get insight from state's safe roads and non-safe roads. It provides detailed information about type of accident and road safety index.
 User can plan their road trip based on the safety index of the route
 
 ## Technology Stack
