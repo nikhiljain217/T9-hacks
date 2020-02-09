@@ -35,3 +35,5 @@ User can plan their road trip based on the safety index of the route
 ![Screenshot](Share%20of%20Accidents%20over%20location.PNG)
 	we are able to display accident occured in perticular type of locations, like Parking lots, Intersection, Highway Interchange. Based on the accident reported from 2016 to 2019 we can visualize that accident occured at non-Itersection roads.
 
+![Screenshot](Death%20Toll%20over%20the%20Years.PNG)
+	we were able to display number of deaths occured per year based on the records from 2013 to 2019 dataset.
